@@ -1,0 +1,44 @@
+form p {
+	margin-right: 50px;
+}
+
+#filter {
+	display: none;
+}
+
+ /* label color */
+.input-field label {
+ color: #3f51b5;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+ color: #3f51b5;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+ border-bottom: 1px solid #3f51b5;
+ box-shadow: 0 1px 0 0 #3f51b5;
+}
+/* valid color */
+.input-field input[type=text].valid {
+ border-bottom: 1px solid #3f51b5;
+ box-shadow: 0 1px 0 0 #3f51b5;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+ border-bottom: 1px solid red;
+ box-shadow: 0 1px 0 0 red;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+ color: #000;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+	background-color: #3f51b5;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
+	background-color: #3f51b5;
+	border: 2px solid #3f51b5;
+}
