@@ -17,6 +17,9 @@ function search(){
 	dataToShow = [];
 	$('#filter').css("display", "none");
 	var keyword = searchInput.value;
+	if(data == null){
+		Materialize.toast('Data not loaded yet. Wait!!!', 5000);
+	}
 	for(var doc in data){
 		// console.log(data[doc])
 		if(isPresent(data[doc].title, keyword) || isPresent(data[doc].description, keyword)){
@@ -74,7 +77,7 @@ function showData(dataToShow){
 		            <div class="card-action indigo darken-1">
 		              <a href="${dataToShow[result].url}">Download</a>
 		              <a style="cursor:pointer" onclick="deleteFile('${dataToShow[result].filename}', '${dataToShow[result].key}')">Delete</a>
-		              <a href="update.html?key=${dataToShow[result].key}" >Update</a>
+		              <a href="html/update.html?key=${dataToShow[result].key}" >Update</a>
 		            </div>
 		          </div>
 		        </div>
@@ -92,6 +95,7 @@ function deleteFile(filename, key){
 	desertRef.delete().then(function() {
 	  // File deleted successfully
 	  console.log("deleted successfully");
+	  Materialize.toast('Deleted successfully', 5000);
 	}).catch(function(error) {
 	  // Uh-oh, an error occurred!
 	  console.log(error);
