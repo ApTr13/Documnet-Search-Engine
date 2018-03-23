@@ -15,7 +15,7 @@
 
 		// Sign in
 		const promise = auth.signInWithEmailAndPassword(email,pass);
-		promise.catch(e => console.log(e.message));
+		promise.catch(e => document.getElementById('errorBlock').innerHTML = e.message);
 	});
 
 	// Add signup event
@@ -27,7 +27,7 @@
 
 		// Sign in
 		const promise = auth.createUserWithEmailAndPassword(email,pass);
-		promise.catch(e => console.log(e.message));
+		promise.catch(e => document.getElementById('errorBlock').innerHTML = e.message);
 	});
 
 	// Add Log out event
@@ -39,10 +39,12 @@
 	firebase.auth().onAuthStateChanged(firebaseUser =>{
 		if(firebaseUser){
 			console.log(firebaseUser);
+			Materialize.toast('User logged in successfully.', 5000);
 			btnLogout.classList.remove('disabled');
 		}
 		else {
 			console.log('Not logged in');
+			Materialize.toast('No user logged in.', 5000);
 			btnLogout.classList.add('disabled');
 		}
 	});
