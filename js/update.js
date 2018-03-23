@@ -17,6 +17,7 @@ function update() {
 	console.log(updateRef);
 
 	updateRef.update({ title: document.getElementById("title").value, description: document.getElementById("desc").value });
+	Materialize.toast('Data updated successfully', 5000);
 }
 
 submitBtn = document.getElementById("submitBtn");
